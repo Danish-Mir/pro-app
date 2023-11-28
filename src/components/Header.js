@@ -1,18 +1,22 @@
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import{BrowserRouter as Router,Routes, Route, Link} from 'react-router-dom';
+import Cart from '../pages/cart/Cart'
+// import Shop from '../pages/shop/Shop';
+import Shop from '../pages/shop/Shop'
 function Header() {
   const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
-
   return (
+    <>
     <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
       <Nav.Item>
-        <Nav.Link eventKey="1" href="#/home">
+        <Nav.Link as ={Link} to="/" eventKey="1">
           Home
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="2" title="Item">
-          NavLink 2 content
+        <Nav.Link as={Link} to="/cart" eventKey="2" title="Item">
+          Cart
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
@@ -31,6 +35,8 @@ function Header() {
         <Nav.Link eventkey="4">Cart</Nav.Link>
       </Nav.Item>
     </Nav>
+
+    </>
   );
 }
 

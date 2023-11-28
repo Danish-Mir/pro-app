@@ -1,17 +1,13 @@
-// import logo from './logo.svg';
-import './App.css';
-import {useState,useEffect} from 'react'
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Product from './components/product';
+import React from 'react';
+import {useState,useEffect} from 'react';
 import axios from 'axios';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Product from '../../components/product';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-
-function App() {
-
+const Shop = () => {
   const [data, setData]=useState([]);   
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/products/')
@@ -23,10 +19,9 @@ function App() {
     })
   },[])
   
-
   return (
     <>
-      <Header />
+
       <Container>
       <Row>
         {data.map((product)=>{
@@ -38,7 +33,7 @@ function App() {
     </Container>
       <Footer/>
     </>
-     );
+  )
 }
 
-export default App;
+export default Shop;
