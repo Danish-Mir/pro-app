@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState,useEffect} from 'react';
+import {useState,useEffect, useContext} from 'react';
 import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -31,7 +31,7 @@ const Shop = () => {
       })}
       </Row>
     </Container>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

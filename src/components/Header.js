@@ -1,14 +1,18 @@
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import{BrowserRouter as Router,Routes, Route, Link} from 'react-router-dom';
-import Cart from '../pages/cart/Cart'
-// import Shop from '../pages/shop/Shop';
-import Shop from '../pages/shop/Shop'
+// import Cart from '../pages/cart/Cart'
+// import Shop from '../pages/shop/Shop'
+import { BsCart } from 'react-icons/bs';
+import { useContext } from 'react';
+import AuthContext from '../user/context/AuthContext';
+
 function Header() {
-  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+  // const {name} = useContext(AuthContext);
+// const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
   return (
     <>
-    <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
+    <Nav variant="pills" activeKey="1" >
       <Nav.Item>
         <Nav.Link as ={Link} to="/" eventKey="1">
           Home
@@ -16,12 +20,12 @@ function Header() {
       </Nav.Item>
       <Nav.Item>
         <Nav.Link as={Link} to="/cart" eventKey="2" title="Item">
-          Cart
+         {/* {name} */}
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="3" disabled>
-          NavLink 3 content
+        <Nav.Link as={Link} to='/login' eventKey="3" >
+          Login
         </Nav.Link>
       </Nav.Item>
       <NavDropdown title="Categories" id="nav-dropdown">
@@ -31,11 +35,12 @@ function Header() {
         <NavDropdown.Divider />
         <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Item>
-        <Nav.Link eventkey="4">Cart</Nav.Link>
-      </Nav.Item>
+      <Nav.Item className="ms-auto">
+          <Nav.Link as={Link} to="/cart" eventkey="4">
+            <BsCart size={20} /> {/* Cart icon */}
+          </Nav.Link>
+        </Nav.Item>
     </Nav>
-
     </>
   );
 }

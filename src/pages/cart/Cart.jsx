@@ -6,7 +6,7 @@ export default function Cart() {
     <>
 
     
-    <div>Cart</div>
+    <div>Welcome to the Cart</div>
     </>
   )
 }
